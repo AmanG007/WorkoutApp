@@ -1,5 +1,4 @@
 import { Component, Inject } from '@angular/core';
-import { Action } from 'rxjs/internal/scheduler/Action';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
