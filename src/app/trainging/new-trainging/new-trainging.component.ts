@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
 import { NgForm } from '@angular/forms';
+import { Observable } from 'rxjs';
 import { Exercise } from '../exercise.model';
 import { TrainingService } from '../training.service';
+
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -10,12 +13,15 @@ import { TrainingService } from '../training.service';
   styleUrls: ['./new-trainging.component.css']
 })
 export class NewTraingingComponent implements OnInit {
-  exercises: Exercise[] = [];
+  exercises: Observable<any>;
 
-  constructor(private trainingService: TrainingService) { }
+  constructor(
+    private trainingService: TrainingService, 
+    private db: AngularFirestore) { }
 
   ngOnInit(): void {
-    this.exercises = this.trainingService.getAvailableExercises();
+    this.exercises = this.db.collection('availableExercises')
+    .valueChanges();
   }
 
   // tslint:disable-next-line:typedef

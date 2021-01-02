@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "ag-fitness-tracker-dn": {
+      "hosting": {
+        "Angular-Material": [
+          "ag-fitness-tracker-dn"
+        ]
+      }
+    }
+  }
+}

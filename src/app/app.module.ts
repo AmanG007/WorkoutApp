@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 
 import { MaterialModule } from './material/material.module';
@@ -21,6 +22,8 @@ import { NewTraingingComponent } from './trainging/new-trainging/new-trainging.c
 import { StopTrainingComponent } from './trainging/current-training/stop-training.component';
 import { AuthService } from './auth/auth.service';
 import { TrainingService } from './trainging/training.service';
+import { environment } from 'src/environments/environment';
+import { AngularFireModule } from '@angular/fire';
 
 @NgModule({
   declarations: [
@@ -43,7 +46,9 @@ import { TrainingService } from './trainging/training.service';
     BrowserAnimationsModule,
     AppRoutingModule,
     FlexLayoutModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule
   ],
   providers: [AuthService, TrainingService],
   bootstrap: [AppComponent],
